@@ -1,4 +1,5 @@
 Animate the construction of various [trochoids](http://en.wikipedia.org/wiki/Trochoid) for fun.
+See a [demo](http://unre.in/trochoid/Hypotrochoid.html).
 
 # Versions
 
@@ -19,7 +20,7 @@ Animate the construction of various [trochoids](http://en.wikipedia.org/wiki/Tro
     * If upgrading Elm, make sure to copy the latest version of `elm-runtime.js` to `lib/`.
 * A modern web browser to view the animation.
 
-# Development
+# Developing
 
 Run `elm-server` in the `src/` directory and then view the pages in your browser.
 
