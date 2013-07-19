@@ -18,15 +18,16 @@ echo "Using temp directory $TMPDIR"
 # Make sure to clean up even if interrupted
 trap "rm -rf $TMPDIR" SIGINT SIGTERM || exit
 
-# Copy build/* to the temp directory
-cp -r build/* $TMPDIR/. || exit
+# Move build/ to the temp directory. Moving it keeps the gh-pages branch
+# from seeing it since it is no longer there.
+mv build $TMPDIR/. || exit
 
 # Switch git branches and clear all files
 git checkout gh-pages || exit
 git rm -rf * || exit
 
 # Copy the build from the temp directory
-cp -r $TMPDIR/* . || exit
+cp -r $TMPDIR/build/* . || exit
 
 # Clean up the temp directory
 rm -rf $TMPDIR
