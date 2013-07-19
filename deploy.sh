@@ -4,7 +4,6 @@
 
 # Assumes the branch is clean. This code checks that condition
 NUM_DIRTY_FILES=`git status --porcelain | wc -l`
-NUM_DIRTY_FILES=0
 if [ $NUM_DIRTY_FILES != 0 ]
 then
     echo "ERROR: your git branch must be clean (no modifications or \
@@ -24,7 +23,7 @@ cp -r build/* $TMPDIR/. || exit
 
 # Switch git branches and clear all files
 git checkout gh-pages || exit
-git rm -rf . || exit
+git rm -rf * || exit
 
 # Copy the build from the temp directory
 cp -r $TMPDIR/* . || exit
